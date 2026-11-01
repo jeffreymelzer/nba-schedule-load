@@ -6,7 +6,9 @@ number per team, **schedule load**, measured in wins for a league-average team. 
 It started as a travel-distance count and turned into a strength-of-schedule model. The effects of rest, travel,
 time zones and altitude are not guessed. They are measured from ten seasons of results.
 
-The dashboard is a static page in [`docs/`](docs/). Open it with `python -m http.server --directory docs`.
+**Live dashboard: https://jeffreymelzer.github.io/nba-schedule-load/**
+
+The dashboard is a static page in [`docs/`](docs/). To run it locally, use `python -m http.server --directory docs`.
 
 ## What it found
 
