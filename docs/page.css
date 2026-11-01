@@ -1,0 +1,51 @@
+.nt { max-width: 1100px; margin-inline: auto; display: flex; flex-direction: column; gap: var(--gap-lg); font-family: var(--font-sans); }
+.nt h1 { font-family: var(--font-serif); font-weight: 400; font-size: 1.75rem; margin: 0; text-wrap: balance; }
+.nt h2 { font-size: var(--font-size-heading); font-weight: var(--font-weight-medium); margin: 0; }
+.nt p { margin: 0; }
+.nt .nt-lede { font-size: var(--font-size-heading); line-height: 1.45; max-width: 62ch; }
+.nt .nt-sub, .nt .nt-note { color: var(--color-fg-muted); font-size: var(--font-size-caption); }
+.nt-head { display: flex; flex-direction: column; gap: var(--gap-sm); }
+.nt-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--gap-md); }
+.nt-kpi { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding: var(--pad-md) 0; border-top: 1px solid var(--color-border-line); }
+.nt-kpi .nt-label { color: var(--color-fg-muted); font-size: var(--font-size-caption); }
+.nt-kpi .nt-big { font-family: var(--font-serif); font-weight: 400; font-size: 1.9rem; font-variant-numeric: tabular-nums; }
+.nt-kpi .nt-sub { overflow-wrap: anywhere; }
+.nt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--gap-md); }
+.nt-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--radius); padding: var(--pad-lg); display: flex; flex-direction: column; gap: var(--gap-sm); min-width: 0; }
+.nt-card-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--gap-sm); }
+.nt-chart { position: relative; min-height: 120px; width: 100%; }
+.nt-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.nt-chart text { fill: var(--color-fg-muted); font-size: 12px; font-family: var(--font-sans); }
+.nt-chart .nt-strong { fill: var(--color-fg); font-weight: 500; }
+.nt-chart .tick line, .nt-chart .domain { stroke: var(--chart-axis); }
+.nt-chart .nt-grid-line { stroke: var(--chart-grid); }
+.nt-hit { cursor: pointer; fill: transparent; }
+.nt-tip { position: absolute; pointer-events: none; z-index: 5; background: var(--surface-popover); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-popover); padding: var(--pad-xs) var(--pad-sm); font-size: var(--font-size-caption); white-space: nowrap; }
+.nt-tip div:first-child { color: var(--text-secondary); }
+.nt-tip div { font-variant-numeric: tabular-nums; }
+.nt select, .nt input[type=search] { font: inherit; font-size: var(--font-size-body); color: var(--color-fg); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: var(--radius); padding: 4px 8px; max-width: 100%; }
+.nt-controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap-sm) var(--gap-md); }
+.nt-controls input[type=range] { flex: 1 1 10rem; min-width: 8rem; accent-color: var(--color-fg); }
+.nt-maplabel { flex: 1 1 100%; font-variant-numeric: tabular-nums; }
+.nt-btn { font: inherit; font-size: var(--font-size-body); color: var(--color-fg); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: var(--radius); padding: 4px 12px; cursor: pointer; }
+.nt-btn[aria-pressed=true] { background: var(--color-fg); color: var(--color-bg); }
+.nt-btn:focus-visible, .nt-controls input:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.nt-land { fill: var(--color-bg); stroke: var(--chart-axis); stroke-width: 0.8; }
+.nt-border { fill: none; stroke: var(--chart-grid); stroke-width: 0.7; }
+.nt-switch { display: inline-flex; align-items: center; gap: 6px; font-size: var(--font-size-body); cursor: pointer; }
+.nt-legend { display: flex; flex-wrap: wrap; gap: var(--gap-xs) var(--gap-md); font-size: var(--font-size-caption); color: var(--color-fg-muted); }
+.nt-key::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; background: var(--k, var(--chart-muted)); }
+.nt .nt-wrap th, .nt .nt-wrap td { white-space: normal; text-align: left; vertical-align: top; min-width: 9rem; }
+.nt .nt-wrap td:nth-child(3) { min-width: 22rem; }
+.nt-scroll { overflow: auto; max-height: 28rem; }
+.nt table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: var(--font-size-body); }
+.nt th, .nt td { text-align: right; padding: 6px 10px; white-space: nowrap; border-bottom: 1px solid var(--color-border-line); }
+.nt th:first-child, .nt td:first-child, .nt .nt-left { text-align: left; }
+.nt thead th { position: sticky; top: 0; background: var(--color-panel); font-weight: var(--font-weight-medium); color: var(--color-fg-muted); font-size: var(--font-size-caption); }
+.nt th button { all: unset; cursor: pointer; }
+.nt th button:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.nt th[aria-sort=ascending] button::after { content: " ↑"; }
+.nt th[aria-sort=descending] button::after { content: " ↓"; }
+.nt tbody tr[data-key] { cursor: pointer; }
+.nt tbody tr[data-key]:hover td { background: var(--color-bg); }
+.nt tbody tr.nt-picked td { font-weight: var(--font-weight-medium); background: var(--color-bg); }

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NBA Schedule Load, 2026–27</title>
+<meta name="description" content="How many wins each NBA team's 2026–27 schedule is expected to cost, from opponents, rest, travel, time zones and altitude, with the effects measured on ten seasons of results.">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+<main>
+<div class="nt" id="nt-top">
+  <header class="nt-head">
+    <h1>NBA schedule load, 2026–27</h1>
+    <p class="nt-lede"><b data-draw="hard_team" data-source="link_headline" data-field="hard_team">—</b> has the heaviest schedule, costing a league-average team about <b data-draw="hard_wins_abs" data-source="link_headline" data-field="hard_wins">—</b> wins compared with an even one. <b data-draw="easy_team" data-source="link_headline" data-field="easy_team">—</b> has the lightest, worth about <b data-draw="easy_wins_abs" data-source="link_headline" data-field="easy_wins">—</b>. Only <b data-draw="n_far" data-source="link_headline" data-field="n_far">—</b> of <b data-draw="n_teams" data-source="link_headline" data-field="n_teams">—</b> teams have a load whose 90% range stays clear of zero.</p>
+    <p class="nt-sub">Schedule load counts opponents' strength, home and road mix, back-to-backs and rest, three games in four nights, time zones, altitude and distance, each weighted by what past results say it costs. Regular season games from <span data-draw="first_game" data-source="headline" data-field="first_game">—</span> to <span data-draw="last_game" data-source="headline" data-field="last_game">—</span>, from the ECAL NBA calendar. Games missing from the calendar, such as NBA Cup knockout rounds, are not counted yet.</p>
+    <label class="nt-switch" for="nt-noalt0"><input type="checkbox" id="nt-noalt0" class="nt-noalt-box"> Leave out altitude</label>
+    <p class="nt-note">Altitude rests on two teams' home games, so it is the least certain part of the load. This switch applies across the dashboard.</p>
+  </header>
+
+  <section class="nt-kpis" aria-label="Headline figures">
+    <div class="nt-kpi">
+      <span class="nt-label">Heaviest schedule, wins lost</span>
+      <span class="nt-big" data-draw="hard_wins" data-source="link_headline" data-field="hard_wins">—</span>
+      <span class="nt-sub" data-draw="hard_team" data-source="link_headline" data-field="hard_team">—</span>
+    </div>
+    <div class="nt-kpi">
+      <span class="nt-label">Lightest schedule, wins lost</span>
+      <span class="nt-big" data-draw="easy_wins" data-source="link_headline" data-field="easy_wins">—</span>
+      <span class="nt-sub" data-draw="easy_team" data-source="link_headline" data-field="easy_team">—</span>
+    </div>
+    <div class="nt-kpi">
+      <span class="nt-label">Gap, heaviest to lightest</span>
+      <span class="nt-big" data-draw="spread" data-source="link_headline" data-field="spread">—</span>
+      <span class="nt-sub">Wins over the season</span>
+    </div>
+    <div class="nt-kpi">
+      <span class="nt-label">Back-to-back, second night</span>
+      <span class="nt-big" data-draw="fx_b2b_tile" data-source="effects_headline" data-field="b2b_cost">—</span>
+      <span class="nt-sub">Points of margin it costs</span>
+    </div>
+  </section>
+  <section class="nt-card" id="nt-loadchart">
+    <div class="nt-card-top">
+      <h2>Schedule load by team</h2>
+      <label class="nt-switch" for="nt-noalt"><input type="checkbox" id="nt-noalt" class="nt-noalt-box"> Leave out altitude</label>
+    </div>
+    <p class="nt-note">Wins a league-average team gives up to this schedule, compared with average opponents on neutral terms. Positive is harder. The dot and line show the total and its 90% range. The switch re-ranks this chart, the schedule table below, the rank shown with the route map and the comparison with other sites. The same switch sits above that comparison.</p>
+    <div class="nt-legend">
+      <span class="nt-key" data-series="0">Opponents' strength</span>
+      <span class="nt-key" data-series="1">Back-to-backs and rest</span>
+      <span class="nt-key" data-series="2">Distance travelled</span>
+      <span class="nt-key" data-series="3">Time zones</span>
+      <span class="nt-key" data-series="4">Three in four nights</span>
+      <span class="nt-key" data-series="5">Altitude</span>
+      <span class="nt-key" data-series="6">Home and road mix</span>
+    </div>
+    <div class="nt-chart" data-draw="loadchart" data-source="team_schedule team_summary">—</div>
+    <p class="nt-note" data-draw="altshift" data-source="altitude_shift">—</p>
+  </section>
+  <section class="nt-card" id="nt-sched">
+    <div class="nt-card-top">
+      <h2>Schedule load by team</h2>
+      <span class="nt-note">Rank 1 is the heaviest schedule. Wins lost is the load from the chart above; the range allows for the uncertainty in each factor. Rank without altitude shows how much each position depends on the altitude estimate, which rests on only two teams' home games. The other columns are the raw counts behind it.</span>
+    </div>
+    <div class="nt-scroll">
+      <table data-source="team_schedule" data-row-key="team" id="nt-sched-table">
+        <thead><tr>
+          <th data-field="team" aria-sort="none"><button type="button" data-sort="team">Team</button></th>
+          <th data-field="difficulty_rank" aria-sort="ascending"><button type="button" data-sort="difficulty_rank">Difficulty rank (1 = hardest)</button></th>
+          <th data-field="load_rank_no_altitude" aria-sort="none"><button type="button" data-sort="load_rank_no_altitude">Rank without altitude</button></th>
+          <th data-field="difficulty_index" aria-sort="none"><button type="button" data-sort="difficulty_index">Wins lost</button></th>
+          <th data-field="load_low" aria-sort="none"><button type="button" data-sort="load_low">Low end of range</button></th>
+          <th data-field="load_high" aria-sort="none"><button type="button" data-sort="load_high">High end of range</button></th>
+          <th data-field="win_pct_prev" aria-sort="none"><button type="button" data-sort="win_pct_prev">Last season win pct</button></th>
+          <th data-field="sos_vs_balanced" aria-sort="none"><button type="button" data-sort="sos_vs_balanced">Opponent strength vs. even</button></th>
+          <th data-field="net_rest_edge" aria-sort="none"><button type="button" data-sort="net_rest_edge">Rest edge</button></th>
+          <th data-field="three_in_four" aria-sort="none"><button type="button" data-sort="three_in_four">3 in 4 nights</button></th>
+          <th data-field="tz_hours_crossed" aria-sort="none"><button type="button" data-sort="tz_hours_crossed">Time-zone hours</button></th>
+          <th data-field="flights" aria-sort="none"><button type="button" data-sort="flights">Flights</button></th>
+          <th data-field="second_night_road_b2b" aria-sort="none"><button type="button" data-sort="second_night_road_b2b">Back-to-backs, second night away</button></th>
+          <th data-field="longest_road_trip" aria-sort="none"><button type="button" data-sort="longest_road_trip">Longest road trip</button></th>
+          <th data-field="longest_homestand" aria-sort="none"><button type="button" data-sort="longest_homestand">Longest homestand</button></th>
+          <th data-field="altitude_road_games" aria-sort="none"><button type="button" data-sort="altitude_road_games">Road games at altitude</button></th>
+        </tr></thead>
+        <tbody data-draw="schedbody"></tbody>
+      </table>
+    </div>
+    <p class="nt-note">Rest edge is games where the opponent was on a back-to-back and the team was not, minus the reverse. Flights are trips between different cities; Yahoo Sports also counts the trip to the first game. A homestand is a run of consecutive home games. Road games at altitude are away games in Denver and Salt Lake City.</p>
+  </section>
+
+  <header class="nt-head" id="nt-load">
+    <h1>What the schedule costs in wins</h1>
+    <p class="nt-lede">Measured on <b data-draw="fx_games" data-source="effects_headline" data-field="games">—</b> games over <b data-draw="fx_seasons" data-source="effects_headline" data-field="seasons">—</b> seasons, the second night of a back-to-back costs about <b data-draw="fx_b2b" data-source="effects_headline" data-field="b2b_cost">—</b> points of margin and home court is worth <b data-draw="fx_hca" data-source="effects_headline" data-field="hca">—</b>. <b data-draw="fx_clear" data-source="effects_headline" data-field="n_clear">—</b> of <b data-draw="fx_total" data-source="effects_headline" data-field="n_total">—</b> factors are clearly measured; the others are shown with their uncertainty.</p>
+    <p class="nt-sub">Points are margin of victory for the team. One point is worth about <b data-draw="fx_winpct" data-source="effects_headline" data-field="win_pct_per_point">—</b> percentage points of win probability in an even game. Every estimate allows for team strength, fitted separately for each team and season. Noisy estimates are pulled toward zero by an amount that depends on how noisy each one is, so one uncertain factor cannot swing a team's rank on its own. Opponents' strength is last season's fitted rating, scaled by <b data-draw="fx_carry" data-source="effects_headline" data-field="carryover">—</b>, the share that carried over from one season to the next.</p>
+  </header>
+
+  <section class="nt-card" id="nt-effects">
+    <div class="nt-card-top">
+      <h2>What each factor is worth</h2>
+      <span class="nt-note">Effects on the team's own margin. Negative means it costs points.</span>
+    </div>
+    <div class="nt-scroll">
+      <table class="nt-wrap" data-source="schedule_effects" data-row-key="effect">
+        <thead><tr>
+          <th data-field="effect">Factor</th>
+          <th data-field="unit">Unit</th>
+          <th data-field="measured">Measured</th>
+          <th data-field="measured_se">Uncertainty (±)</th>
+          <th data-field="used">Used in the load</th>
+          <th data-field="earlier_seasons">Earlier seasons only</th>
+          <th data-field="recent_seasons">Latest seasons only</th>
+          <th data-field="win_pct_per_game">Win probability per game, percentage points</th>
+          <th data-field="clear">Evidence</th>
+        </tr></thead>
+        <tbody data-draw="effectsbody"></tbody>
+      </table>
+    </div>
+    <p class="nt-note">The earlier and latest columns fit each half of the seasons on its own, so each carries roughly twice the uncertainty of the full fit. A gap between them means an effect may have changed over time. Home court is each season's fitted edge averaged over the seasons in that fit, leaving out 2020–21, when arenas were mostly empty and the edge nearly disappeared.</p>
+  </section>
+
+  <header class="nt-head" id="nt-strength">
+    <h1>Does a better record earn an easier schedule?</h1>
+    <p class="nt-lede">Last season's win percentage lines up most closely with <b data-draw="top_label" data-source="link_headline" data-field="top_label">—</b> (correlation <b data-draw="top_r" data-source="link_headline" data-field="top_r">—</b>). <b data-draw="n_signal" data-source="link_headline" data-field="n_signal">—</b> of <b data-draw="n_total" data-source="link_headline" data-field="n_total">—</b> measures clear the usual noise level of <b data-draw="threshold" data-source="link_headline" data-field="threshold">—</b> with one season of results per team.</p>
+    <p class="nt-sub">Strength is last season's regular-season record from ESPN. Correlation runs from −1 to +1. For every measure except rest edge, a negative number means last season's better teams carry the lighter load. Opponent strength is compared with an evenly spread schedule, because a team never plays itself and that alone makes strong teams look easier.</p>
+  </header>
+
+  <div class="nt-grid">
+    <section class="nt-card" id="nt-links">
+      <div class="nt-card-top">
+        <h2>Link with last season's win percentage</h2>
+      </div>
+      <p class="nt-note">One bar per measure. The shaded band is the noise range. Click a bar to plot it.</p>
+      <div class="nt-chart" data-draw="links" data-source="schedule_links">—</div>
+    </section>
+
+    <section class="nt-card" id="nt-link-scatter">
+      <div class="nt-card-top">
+        <h2><span data-draw="metric_name" data-source="schedule_links">—</span></h2>
+        <span class="nt-note">Correlation <b data-draw="metric_r" data-source="schedule_links" data-field="r">—</b></span>
+      </div>
+      <p class="nt-note">Each dot is a team: last season's win percentage across, this season's measure up.</p>
+      <div class="nt-chart" data-draw="linkscatter" data-source="team_schedule schedule_links">—</div>
+    </section>
+  </div>
+
+  <header class="nt-head" id="nt-compare">
+    <h1>How this compares with other sources</h1>
+    <p class="nt-lede">Our difficulty rank correlates <b data-draw="hm_r" data-source="compare_headline" data-field="hm_r">—</b> with the travel-and-rest index from Hoops Menu and <b data-draw="legion_r" data-source="compare_headline" data-field="legion_r">—</b> with Legion Report's ranking of remaining opponents. Back-to-back counts match Legion Report for <b data-draw="b2b_exact" data-source="compare_headline" data-field="b2b_exact">—</b> of <b data-draw="b2b_n" data-source="compare_headline" data-field="b2b_n">—</b> teams.</p>
+    <p class="nt-sub">The sources measure different things. Hoops Menu averages five equal-weight travel and rest measures and leaves out opponent strength. Legion Report ranks the current records of each team's remaining opponents, so its ranking changes as results come in. Our rank also counts last season's opponent strength. Applying Hoops Menu's recipe to our own counts gives a correlation of <b data-draw="recipe_r" data-source="compare_headline" data-field="recipe_r">—</b> with their index, so most of the gap comes from how the measures are combined and not from the counts themselves. The outside figures were copied from each site's page and have not been independently checked.</p>
+  </header>
+
+  <div class="nt-card-top">
+    <label class="nt-switch" for="nt-noalt2"><input type="checkbox" id="nt-noalt2" class="nt-noalt-box"> Leave out altitude from our rank</label>
+  </div>
+
+  <section class="nt-card" id="nt-agree">
+    <div class="nt-card-top">
+      <h2>Do the counts agree?</h2>
+      <span class="nt-note">Correlation of our value with theirs across all teams; +1.00 is the same order. Exact matches count teams with identical values.</span>
+    </div>
+    <div class="nt-scroll">
+      <table data-source="agreement" data-row-key="key">
+        <thead><tr>
+          <th data-field="measure" class="nt-left" style="text-align:left">Measure</th>
+          <th data-field="source" class="nt-left" style="text-align:left">Compared with</th>
+          <th data-field="r">Correlation</th>
+          <th data-field="exact">Exact matches</th>
+          <th data-field="gap">Average gap</th>
+        </tr></thead>
+        <tbody data-draw="agreebody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="nt-card" id="nt-ranks">
+    <div class="nt-card-top">
+      <h2>Schedule rank by source</h2>
+      <span class="nt-note">Rank 1 is the hardest schedule. Click a team to follow it. Sources marked remaining look at games still to come, so they change as the season goes on.</span>
+    </div>
+    <div class="nt-legend">
+      <span class="nt-key" data-series="0">This dashboard</span>
+      <span class="nt-key" data-series="1">Hoops Menu, full season</span>
+      <span class="nt-key" data-series="2">Legion Report, remaining</span>
+      <span class="nt-key" data-series="3">Power Rankings Guru, remaining</span>
+      <span class="nt-key" data-series="4">CraftedNBA, remaining</span>
+    </div>
+    <div class="nt-legend nt-legend-played" hidden>
+      <span class="nt-key" data-series="5">ESPN RPI, games so far</span>
+      <span class="nt-key" data-series="6">Power Rankings Guru, games so far</span>
+      <span class="nt-key" data-series="7">CraftedNBA, games so far</span>
+    </div>
+    <label class="nt-note" for="nt-played"><input type="checkbox" id="nt-played"> Also show sources based only on games already played</label>
+    <div class="nt-chart" data-draw="rankcompare" data-source="source_comparison team_summary">—</div>
+    <p class="nt-note" data-draw="biggest_gaps" data-source="biggest_gaps">—</p>
+  </section>
+
+  <section class="nt-card" id="nt-methods">
+    <div class="nt-card-top">
+      <h2>How each site ranks</h2>
+      <span class="nt-note">Worked out from each site's own description and by reproducing its published numbers.</span>
+    </div>
+    <div class="nt-scroll">
+      <table class="nt-wrap" data-source="source_methods" data-row-key="source">
+        <thead><tr>
+          <th data-field="source">Source</th>
+          <th data-field="measures">Measures</th>
+          <th data-field="calculation">How it is calculated</th>
+          <th data-field="reproduced">Could we reproduce it?</th>
+        </tr></thead>
+        <tbody data-draw="methodsbody"></tbody>
+      </table>
+    </div>
+  </section>
+  <header class="nt-head">
+    <h1>Travel and routes</h1>
+    <p class="nt-lede"><b data-draw="most_team" data-source="headline" data-field="most_team">—</b> log <b data-draw="most_miles" data-source="headline" data-field="most_miles">—</b> miles this season, the most of any team. <b data-draw="least_team" data-source="headline" data-field="least_team">—</b> log <b data-draw="least_miles" data-source="headline" data-field="least_miles">—</b>, the fewest.</p>
+    <p class="nt-sub">Regular season games from <span data-draw="first_game" data-source="headline" data-field="first_game">—</span> to <span data-draw="last_game" data-source="headline" data-field="last_game">—</span>, from the ECAL NBA calendar. Miles are straight-line distances between the cities of consecutive games. Games missing from the calendar, such as NBA Cup knockout rounds, are not counted yet.</p>
+    <p class="nt-sub">Each extra 1,000 miles between games is measured at <b data-draw="fx_miles" data-source="effects_headline" data-field="miles_measured">—</b> points of margin, give or take <b data-draw="fx_miles_se" data-source="effects_headline" data-field="miles_se">—</b>, once back-to-backs are counted. Distance is shown here for context, and the route map below follows any team through its season.</p>
+  </header>
+
+  <section class="nt-kpis" aria-label="Headline figures">
+    <div class="nt-kpi">
+      <span class="nt-label">Average team, season miles</span>
+      <span class="nt-big" data-draw="avg_miles" data-source="headline" data-field="avg_miles">—</span>
+      <span class="nt-sub">Mean across all teams</span>
+    </div>
+    <div class="nt-kpi">
+      <span class="nt-label">Gap, most to fewest miles</span>
+      <span class="nt-big" data-draw="gap_miles" data-source="headline" data-field="gap_miles">—</span>
+      <span class="nt-sub">Extra miles for the busiest team</span>
+    </div>
+    <div class="nt-kpi">
+      <span class="nt-label">Longest single trip</span>
+      <span class="nt-big" data-draw="longest_miles" data-source="headline" data-field="longest_leg_miles">—</span>
+      <span class="nt-sub"><span data-draw="longest_team" data-source="headline" data-field="longest_leg_team">—</span>, <span data-draw="longest_route" data-source="headline" data-field="longest_leg_route">—</span></span>
+    </div>
+    <div class="nt-kpi">
+      <span class="nt-label">Back-to-backs with travel, per team</span>
+      <span class="nt-big" data-draw="avg_b2b" data-source="headline" data-field="avg_travel_b2b">—</span>
+      <span class="nt-sub">Average across the league</span>
+    </div>
+  </section>
+
+  <section class="nt-card" id="nt-miles">
+    <div class="nt-card-top">
+      <h2>Season miles by team</h2>
+      <span class="nt-note">Click a team to follow it below.</span>
+    </div>
+    <div class="nt-chart" data-draw="bars" data-source="team_summary">—</div>
+  </section>
+
+  <section class="nt-card" id="nt-map">
+    <div class="nt-card-top">
+      <h2>Season route, <span data-draw="sel_name3" data-source="team_summary">—</span></h2>
+      <span class="nt-note">Schedule difficulty rank <b data-draw="sel_rank" data-source="team_schedule">—</b> (1 is hardest). Lines join games in order; dots grow with visits.</span>
+    </div>
+    <div class="nt-controls">
+      <button type="button" id="nt-play" class="nt-btn" aria-pressed="false">Play route</button>
+      <input type="range" id="nt-step" data-draw="stepper" data-source="team_legs" aria-label="Games played so far">
+      <span class="nt-note nt-maplabel" data-draw="maplabel" data-source="team_legs cities">—</span>
+    </div>
+    <div class="nt-chart" data-draw="map" data-source="basemap cities team_legs">—</div>
+    <p class="nt-note" data-draw="mapnote" data-source="team_legs cities" hidden>—</p>
+  </section>
+
+  <div class="nt-grid">
+    <section class="nt-card" id="nt-scatter">
+      <div class="nt-card-top">
+        <h2>Miles against tiring back-to-backs</h2>
+      </div>
+      <p class="nt-note">A back-to-back is two games on consecutive days, by local time at each arena. It counts as travel when the two games are in different cities. Teams to the upper right carry the heaviest load.</p>
+      <div class="nt-chart" data-draw="scatter" data-source="team_summary">—</div>
+    </section>
+
+    <section class="nt-card" id="nt-team">
+      <div class="nt-card-top">
+        <h2>Miles piled up, <span data-draw="sel_name" data-source="team_summary">—</span></h2>
+        <label class="nt-note" for="nt-team-select">Team <select id="nt-team-select" data-draw="teamsel" data-source="team_summary" aria-label="Team"></select></label>
+      </div>
+      <p class="nt-note">Running total of miles travelled, against the league average.</p>
+      <div class="nt-chart" data-draw="cum" data-source="team_legs league_cum">—</div>
+    </section>
+  </div>
+
+  <section class="nt-card" id="nt-legs">
+    <div class="nt-card-top">
+      <h2>Longest trips, <span data-draw="sel_name2" data-source="team_summary">—</span></h2>
+      <span class="nt-note">The longest trips between consecutive games.</span>
+    </div>
+    <div class="nt-scroll">
+      <table data-source="team_legs" data-row-key="leg_id">
+        <thead><tr>
+          <th data-field="date">Arrives</th>
+          <th data-field="from_city" class="nt-left" style="text-align:left">From</th>
+          <th data-field="to_city" class="nt-left" style="text-align:left">To</th>
+          <th data-field="miles">Miles</th>
+          <th data-field="hours">Hours since last game</th>
+        </tr></thead>
+        <tbody data-draw="legsbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="nt-card" id="nt-all">
+    <div class="nt-card-top">
+      <h2>All teams</h2>
+      <input id="nt-search" type="search" placeholder="Search teams" aria-label="Search teams">
+    </div>
+    <div class="nt-scroll">
+      <table data-source="team_summary" data-row-key="team" id="nt-all-table">
+        <thead><tr>
+          <th data-field="team" aria-sort="none"><button type="button" data-sort="team">Team</button></th>
+          <th data-field="games" aria-sort="none"><button type="button" data-sort="games">Games</button></th>
+          <th data-field="total_miles" aria-sort="descending"><button type="button" data-sort="total_miles">Total miles</button></th>
+          <th data-field="miles_per_game" aria-sort="none"><button type="button" data-sort="miles_per_game">Miles per game</button></th>
+          <th data-field="back_to_backs" aria-sort="none"><button type="button" data-sort="back_to_backs">Back-to-backs</button></th>
+          <th data-field="travel_back_to_backs" aria-sort="none"><button type="button" data-sort="travel_back_to_backs">With travel</button></th>
+          <th data-field="longest_trip" aria-sort="none"><button type="button" data-sort="longest_trip">Longest trip</button></th>
+        </tr></thead>
+        <tbody data-draw="allbody"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<footer class="nt-foot">
+  <p>Schedule: ECAL NBA calendar, regular season games listed there. Past results and last season's standings: ESPN's public site data. Figures from other sites were copied from their pages on 31 October 2026 and have not been independently checked. How each site's ranking works was inferred from its description and by reproducing its published numbers.</p>
+  <p>An independent analysis, not affiliated with or endorsed by the NBA, ESPN or any site named here. Team names appear only to identify teams.</p>
+</footer>
+</main>
+<noscript><p style="max-width:1100px;margin:16px auto">This page draws its charts with JavaScript.</p></noscript>
+<script src="vendor/d3.min.js"></script>
+<script src="dash.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

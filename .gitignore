@@ -1,0 +1,11 @@
+__pycache__/
+.idea/
+.pytest_cache/
+output/
+
+# ESPN responses, fetched and cached by main.py on the first run
+data/results_*.json
+data/standings_*.json
+
+# the calendar download carries subscriber-specific links; the games list in data/ is what the project reads
+data/NBA.ics
